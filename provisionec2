@@ -1,0 +1,15 @@
+- hosts: localhost
+  vars_files:
+          - /task2/credentials.yml
+  tasks:
+  - ec2_instance:
+          region: ap-south-1
+          image_id: ami-04b1ddd35fd71475a
+          instance_type: t2.micro
+          vpc_subnet_id: subnet-ec363f84
+          security_group: sg-63a60204
+          key_name: os2
+          name: os_from_ansible
+          state: present
+          aws_access_key: "{{my_access}}"
+          aws_secret_key: "{{my_secret}}"
